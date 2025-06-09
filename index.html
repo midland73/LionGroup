@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LionGroup — Ремонт и отделка</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="img/logos.ico" type="image/x-icon">  
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Верхний бар -->
+<div class="top-bar py-1 border-bottom">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="d-flex gap-4 ms-3 top-nav">
+      <a href="#">Ремонт и отделка</a>
+      <a href="#">Дизайн и проектирование</a>
+    </div>
+    <div class="d-flex gap-3 me-3 top-right-links">
+      <a href="#">О компании</a>
+      <a href="#">Наши работы</a>
+      <a href="#">Цены</a>
+      <a href="#">Акции</a>
+      <a href="#">Контакты</a>
+      <span class="fw-bold">+7 495 150 24 93</span>
+    </div>
+  </div>
+</div>
+
+<!-- Основное меню -->
+<div class="main-nav py-3">
+  <div class="container d-flex align-items-center justify-content-between">
+    <!-- Логотип -->
+    <div class="d-flex align-items-center logo-block">
+      <img id="favicon" src="img/logos.ico" alt="Logo" class="me-2 logo-img" />
+      <span id="favicon" class="fw-bold fs-5">LIONGROUP</span>
+    </div>
+
+    <!-- Меню -->
+    <div class="d-none d-lg-flex align-items-center gap-4 nav-links">
+      <div class="dropdown">
+        <a class="dropdown-toggle nav-link-custom" href="#" role="button" data-bs-toggle="dropdown">Ремонт квартир</a>
+        <div class="dropdown-menu dropdown-custom p-3">
+          <div class="row">
+            <div class="col-md-3">
+              <h6>Комплексный</h6>
+              <a href="#">Капитальный</a>
+              <a href="#">Евроремонт</a>
+              <a href="#">Элитный</a>
+              <a href="#">Под ключ</a>
+              <a href="#">Дизайнерский</a>
+            </div>
+            <div class="col-md-3">
+              <h6>Типовой</h6>
+              <a href="#">В студии</a>
+              <a href="#">1-комнатный</a>
+              <a href="#">2-комнатный</a>
+              <a href="#">3-комнатный</a>
+              <a href="#">4-комнатный</a>
+              <a href="#">В новостройке</a>
+            </div>
+            <div class="col-md-3">
+              <h6>Полезное</h6>
+              <a href="#">Схема и сроки ремонта</a>
+              <a href="#">Гарантия на работы</a>
+              <a href="#">Договор на услуги</a>
+              <a href="#">Прайс-лист</a>
+            </div>
+            <div class="col-md-3">
+              <img src="img/sl(2).jpg" class="img-fluid mb-2" alt="Preview" />
+              <strong>Какой ремонт выбрать?</strong>
+              <p class="small text-muted">
+                Узнайте чем отличается «Капитальный» от «Элитного» и почему наши клиенты выбирают «Под ключ»
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="nav-link-custom">Ремонт домов</a>
+      <a href="#" class="nav-link-custom">Коммерческий ремонт</a>
+    </div>
+
+    <!-- Кнопка -->
+<a href="forms/calc.html" class="btn btn-dark px-4 py-2 d-none d-lg-block">Калькулятор ремонта</a>
+
+    <!-- Гамбургер -->
+   <button class="btn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+  <span class="navbar-toggler-icon"></span>
+</button>
+  </div>
+</div>
+
+<!-- Offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5>Меню</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column gap-2">
+    <a href="#">Ремонт квартир</a>
+    <a href="#">Ремонт домов</a>
+    <a href="#">Коммерческий ремонт</a>
+    <a href="#">О компании</a>
+    <a href="#">Контакты</a>
+  </div>
+</div>
+<section class="hero-section">
+    <div class="container">
+      <h1 class="main-title">Честный ремонт квартир <br>с полным сопровождением</h1>
+      <p class="sub-title">
+        Беспокоим один раз, когда пора заселяться. Гарантируем, что по ходу проекта цена в договоре не увеличится.
+      </p>
+    </div>
+  </section>
+
+<div class="slider-wrap">
+  <section class="slider-section">
+    <div class="slides">
+      <img src="img/sl(1).jpg" alt="Слайд 1" class="slide active">
+      <img src="img/sl(2).jpg" alt="Слайд 2" class="slide">
+      <img src="img/sl(1).jpg" alt="Слайд 3" class="slide">
+    </div>
+    <button class="prev-btn">&#8592;</button>
+    <button class="next-btn">&#8594;</button>
+  </section>
+
+  <!-- Перемещён вниз -->
+  <div class="slider-caption">
+    <h3>Ремонт квартиры в Москве и области</h3>
+    <p>Фиксированная смета и сроки работ по доступной цене</p>
+    <div class="slider-counter">01 / 03</div>
+  </div>
+</div>
+
+<section class="container py-5">
+  <h2 class="fw-bold mb-4">Ключевые направления</h2>
+
+  <ul class="nav nav-tabs mb-4" id="serviceTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="apart-tab" data-bs-toggle="tab" data-bs-target="#apart" type="button" role="tab">Ремонт квартир</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="com-tab" data-bs-toggle="tab" data-bs-target="#com" type="button" role="tab">Коммерческая недвижимость</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="house-tab" data-bs-toggle="tab" data-bs-target="#house" type="button" role="tab">Ремонт домов</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="other-tab" data-bs-toggle="tab" data-bs-target="#other" type="button" role="tab">Прочие услуги</button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="serviceTabsContent">
+    <div class="tab-pane fade show active" id="apart" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 border-0">
+            <img src="img/container-pictures(1).png" class="card-img-top" alt="Ремонт однушки">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Ремонт однушки</h5>
+              <p class="card-text text-muted">от 10 000 ₽ за м²</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-0">
+            <img src="img/container-pictures(2).png" class="card-img-top" alt="Капитальный ремонт">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Капитальный ремонт</h5>
+              <p class="card-text text-muted">от 15 000 ₽ за м²</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-0">
+            <img src="img/container-pictures(3).png" class="card-img-top" alt="Дизайнерский ремонт">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Дизайнерский ремонт</h5>
+              <p class="card-text text-muted">от 20 000 ₽ за м²</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Могут быть добавлены аналогично другие табы -->
+    <div class="tab-pane fade" id="com" role="tabpanel">Коммерческая недвижимость (контент)</div>
+    <div class="tab-pane fade" id="house" role="tabpanel">Ремонт домов (контент)</div>
+    <div class="tab-pane fade" id="other" role="tabpanel">Прочие услуги (контент)</div>
+  </div>
+</section>
+
+<section class="benefits-section py-5">
+  <div class="container">
+
+    <h2 class="section-title fw-bold mb-5 text-white text-center text-md-start">
+      При работе с нами вы получаете
+    </h2>
+
+    <div class="row gy-5 text-white">
+      <!-- Карточка 1 -->
+      <div class="col-12 col-md-3">
+        <div class="benefit">
+          <div class="benefit-number" data-target="0">0</div>
+          <h6 class="benefit-title mb-1">рублей свыше сметы</h6>
+          <p class="benefit-text">Цена указывается в договоре и НЕ изменяется в процессе.</p>
+        </div>
+      </div>
+
+      <!-- Карточка 2 -->
+      <div class="col-12 col-md-3">
+        <div class="benefit">
+          <div class="benefit-number" data-target="12">0</div>
+          <h6 class="benefit-title mb-1">дней просрочки</h6>
+          <p class="benefit-text">Гарантируем соблюдение сроков, прописанных в договоре. Платим за просрочки.</p>
+        </div>
+      </div>
+
+      <!-- Карточка 3 -->
+      <div class="col-12 col-md-3">
+        <div class="benefit">
+          <div class="benefit-number" data-target="253">0</div>
+          <h6 class="benefit-title mb-1">потраченных нервов</h6>
+          <p class="benefit-text">Мы согласовываем все вопросы с соседями, подрядчиками, БТИ или управляющими компаниями.</p>
+        </div>
+      </div>
+
+      <!-- Карточка 4 -->
+      <div class="col-12 col-md-3">
+        <div class="benefit">
+          <div class="benefit-number" data-target="1214">0</div>
+          <h6 class="benefit-title mb-1">проблем после ремонта</h6>
+          <p class="benefit-text">10 лет гарантии на сантехнику и электрику, 2 года гарантии на отделку.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="projects py-5">
+  <div class="container">
+    <h2 class="fw-bold section-title">Наши проекты</h2>
+
+    <!-- Табы -->
+    <ul class="nav nav-tabs border-bottom mb-4">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Ремонт квартир</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Коммерческая недвижимость</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Ремонт домов</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Прочие услуги</a>
+      </li>
+    </ul>
+
+    <!-- Проект 1 -->
+    <div class="row mb-4 align-items-start">
+      <div class="col-md-6">
+        <img src="img/pic(1).png" alt="Кухня" class="img-fluid rounded">
+      </div>
+      <div class="col-md-6">
+        <h5 class="fw-bold project-title">Ремонт элитной 5-комнатной квартиры в Одинцово</h5>
+        <div class="row small text-muted mb-2">
+          <div class="col-6">Площадь <br><strong>250 м²</strong></div>
+          <div class="col-6">На материалы <br><strong>4 000 000 ₽</strong></div>
+          <div class="col-6 mt-2">Срок <br><strong>6 месяцев</strong></div>
+          <div class="col-6 mt-2">За работу <br><strong>2 000 000 ₽</strong></div>
+        </div>
+        <a href="#" class="text-decoration-underline small mt-2 d-inline-block">Подробнее о проекте</a>
+      </div>
+    </div>
+
+    <!-- Проект 2 -->
+    <div class="row mb-4 align-items-start">
+      <div class="col-md-6">
+        <img src="img/pic(2).png" alt="Комната" class="img-fluid rounded">
+      </div>
+      <div class="col-md-6">
+        <h5 class="fw-bold project-title">Ремонт небольшой однушки для архитектора</h5>
+        <div class="row small text-muted mb-2">
+          <div class="col-6">Площадь <br><strong>250 м²</strong></div>
+          <div class="col-6">На материалы <br><strong>4 000 000 ₽</strong></div>
+          <div class="col-6 mt-2">Срок <br><strong>6 месяцев</strong></div>
+          <div class="col-6 mt-2">За работу <br><strong>2 000 000 ₽</strong></div>
+        </div>
+        <a href="#" class="text-decoration-underline small mt-2 d-inline-block text-primary">Подробнее о проекте</a>
+      </div>
+    </div>
+
+    <button class="btn btn-outline-dark">
+      Посмотреть больше проектов <span class="ms-2">&rarr;</span>
+    </button>
+  </div>
+</section>
+
+<section class="cta bg-light py-5 mt-5">
+ <div class="estimate-section">
+  <h2 class="estimate-title">
+    У вас уже есть смета от подрядчиков? <span class="arrow">→</span>
+  </h2>
+  <p class="subtitle">
+    Бесплатно сделаем аудит и проверим на «порядочность» будущих исполнителей.
+  </p>
+</div>
+</section>
+
+<section class="testimonials py-5">
+  <div class="container">
+    <!-- Заголовок и подзаголовок, выровненные влево -->
+    <div class="mb-4 text-start">
+      <h2 class="fw-bold hover-grow">Клиенты о нас</h2>
+      <p class="text-muted">Вот несколько историй от людей, которые доверили нам своё жильё.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="review-button-wrapper">
+<a href="forms/otz.html" class="review-button-1">Оставить отзыв</a>
+<a href="forms/regist.html" class="review-button-2">Зарегистрироваться</a>
+</div>
+      <!-- Видео 1 -->
+      <div class="col-md-6">
+        <div class="video-wrapper">
+          <video class="video-player w-100 rounded">
+            <source src="video/video1.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <h5 class="mt-2 hover-grow">Видеоотзыв от Андрея Константинова</h5>
+        <p class="text-muted">Ремонт коттеджа в Сколково</p>
+      </div>
+
+      <!-- Видео 2 -->
+      <div class="col-md-6">
+        <div class="video-wrapper">
+          <video class="video-player w-100 rounded">
+            <source src="video/video2.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <h5 class="mt-2 hover-grow">Видеоотзыв от Семьи Костенко</h5>
+        <p class="text-muted">Ремонт квартиры в Медведково</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="insta-block py-5">
+  <div class="container">
+
+    <!-- Заголовок и @ник -->
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+      <h2 class="fw-bold m-0 text-white">Наш Instagram</h2>
+      <a href="https://instagram.com/remontlion" target="_blank"
+         class="insta-handle">@remontlion</a>
+    </div>
+
+    <!-- Грид - 4 карточки -->
+    <div class="row g-4">
+      <!-- card 1 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <a href="#" class="insta-card first-card">
+          <img src="img/inst(1).png" alt="insta1" />
+          <div class="insta-overlay">
+            <img src="img/inst.png" alt="IG" />
+          </div>
+        </a>
+      </div>
+
+      <!-- card 2 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <a href="#" class="insta-card">
+          <img src="img/inst(2).png" alt="insta2" />
+        </a>
+      </div>
+
+      <!-- card 3 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <a href="#" class="insta-card">
+          <img src="img/inst(3).png" alt="insta3" />
+        </a>
+      </div>
+
+      <!-- card 4 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <a href="#" class="insta-card">
+          <img src="img/inst(4).png" alt="insta4" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partners-section py-5 text-center bg-light">
+  <div class="container">
+    <h2 class="fw-bold mb-4 zoom-on-hover">Проверенные партнёры</h2>
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+      <img src="img/logo-1.png" alt="Partner-1" class="partner-logo" />
+      <img src="img/logo-2.png" alt="Partner-2" class="partner-logo" />
+      <img src="img/logo-3.png" alt="Partner-3" class="partner-logo" />
+      <img src="img/logo-4.png" alt="Partner-4" class="partner-logo" />
+      <img src="img/logo-5.png" alt="Partner-5" class="partner-logo" />
+      <img src="img/logo-6.png" alt="Partner-6" class="partner-logo" />
+    </div>
+  </div>
+</section>
+
+<!-- Блок "Стратегия / Креатив / Крафт" -->
+<section class="text-section py-5">
+  <div class="section-container">
+  <div class="content-block">
+    <h2 class="title">Стратегия</h2>
+    <p class="text">
+      Все наши креативные идеи рождаются по поведению простых людей. Только так создаются работы, способные изменить бренд. Для того, чтобы бренд стал культовым, он становится простым, как разговор двух приятелей в лифте. За это, прежде всего, отвечает стратегия — и наш стратегический отдел.
+    </p>
+  </div>
+
+  <div class="content-block">
+    <h2 class="title">Креатив</h2>
+    <p class="text">
+      Рекламный креатив всегда преследует одну цель и решает конкретную задачу. Для решения задач мы создаем истории. Иногда великая идея может скрываться в простой, маленькой и очевидной истине. Главное ее первым обнаружить. Неважно, какой будет кампания, как она будет выглядеть или звучать, важно, какое влияние она окажет на людей.
+      И как дальше о ней кто-то расскажет кому-то — и даже лучше, если расскажет своими словами.
+      Никто не смотрит рекламу. Люди смотрят только то, что им интересно. И только иногда — это реклама.
+    </p>
+  </div>
+
+  <div class="content-block">
+    <h2 class="title">Крафт</h2>
+    <p class="text">
+      Как и в художественной литературе, так и в любом другом виде искусства, важнейший элемент — это деталь. Творческое ремесло, которым и является реклама, невозможно без кропотливой работы над деталями. Поэтому 90% того, что мы придумываем — мы делаем сами.
+    </p>
+  </div>
+</div>
+</section>
+
+<footer class="footer bg-dark text-light py-5">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-md-8">
+  <p class="mb-1 small text-secondary">Мы на связи ежедневно с 08:00 до 00:00</p>
+  <h2 class="fw-bold fs-2">+7 495 150-24-93</h2>
+</div>
+      <div class="col-md-4 text-md-end">
+<a href="forms/zamer.html" class="btn btn-outline-light">Вызывать замерщика</a>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <a href="mailto:hello@remontlion.ru" class="text-info text-decoration-none d-block mb-2">
+          hello@remontlion.ru
+        </a>
+        <address class="text-secondary small">
+          г. Зеленоград<br>
+          проспект Алексея Генералова, 1<br>
+          строение 1, офис 215Б
+        </address>
+      </div>
+      <div class="col-md-3 mb-3">
+        <ul class="list-unstyled small">
+          <li><a href="#" class="text-light text-decoration-none">О компании</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Наши работы</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Цены</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Акции</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-3">
+        <ul class="list-unstyled small">
+          <li><a href="#" class="text-light text-decoration-none">Ремонт квартир</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Ремонт домов</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Коммерческий ремонт</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Калькулятор ремонта</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-3">
+        <ul class="list-unstyled small">
+          <li><a href="#" class="text-light text-decoration-none">Дизайн интерьера</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Визуализация</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Подбор материалов</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Авторский надзор</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-secondary small mt-4">
+      Задизайнено в <a href="#" class="text-decoration-none text-light">Simplexx.Agency</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

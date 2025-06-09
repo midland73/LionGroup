@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/logos.ico" type="image/x-icon">  
+  <title>Форма регистрации</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .registration-form {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .registration-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .registration-form label {
+      color: #000;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .registration-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #000;
+      border-radius: 5px;
+    }
+
+    .registration-form button {
+      width: 100%;
+      padding: 10px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .registration-form button:hover {
+      background: #333;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: none;
+      text-align: center;
+    }
+
+    .popup p {
+      margin-bottom: 15px;
+    }
+
+    .popup button {
+      padding: 10px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .popup button:hover {
+      background: #333;
+    }
+
+    @media (max-width: 500px) {
+      .registration-form {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="registration-form">
+    <h2>Регистрация</h2>
+    <form id="form">
+      <label for="username">Имя пользователя</label>
+      <input type="text" id="username" name="username" placeholder="Введите ваше имя пользователя" />
+
+      <label for="email">Электронная почта</label>
+      <input type="email" id="email" name="email" placeholder="Введите ваш email" />
+
+      <label for="password">Пароль</label>
+      <input type="password" id="password" name="password" placeholder="Введите ваш пароль" />
+
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+  </div>
+
+  <div class="popup" id="popup">
+    <p>Регистрация прошла успешно!</p>
+    <button id="closePopup">Закрыть</button>
+  </div>
+
+  <script>
+    const form = document.getElementById('form');
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('closePopup');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (!username || !email || !password) {
+        alert('Пожалуйста, заполните все поля.');
+        return;
+      }
+
+      popup.style.display = 'block';
+    });
+
+    closePopup.addEventListener('click', () => {
+      popup.style.display = 'none';
+      form.reset();
+    });
+  </script>
+</body>
+</html>

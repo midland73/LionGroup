@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/logos.ico" type="image/x-icon">  
+  <title>Форма вызова замерщика</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .measurer-form {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .measurer-form h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #000;
+      font-size: 24px;
+    }
+
+    .measurer-form label {
+      color: #000;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .measurer-form input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 2px solid #000;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .measurer-form button {
+      width: 100%;
+      padding: 15px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .measurer-form button:hover {
+      background: #333;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      display: none;
+      text-align: center;
+    }
+
+    .popup p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .popup button {
+      padding: 15px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .popup button:hover {
+      background: #333;
+    }
+
+    @media (max-width: 500px) {
+      .measurer-form {
+        padding: 30px;
+      }
+
+      .measurer-form h2 {
+        font-size: 20px;
+      }
+
+      .measurer-form label {
+        font-size: 16px;
+      }
+
+      .measurer-form input {
+        padding: 12px;
+        font-size: 14px;
+      }
+
+      .measurer-form button {
+        padding: 12px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="measurer-form">
+    <h2>Вызвать замерщика</h2>
+    <form id="measurerForm">
+      <label for="fullname">Ваше ФИО</label>
+      <input type="text" id="fullname" name="fullname" placeholder="Введите ваше ФИО" />
+
+      <label for="phone">Ваш телефон</label>
+      <input type="tel" id="phone" name="phone" placeholder="Введите ваш номер телефона" />
+
+      <button type="submit">Отправить</button>
+    </form>
+  </div>
+
+  <div class="popup" id="measurerPopup">
+    <p>Заявка успешно отправлена!</p>
+    <button id="closeMeasurerPopup">Закрыть</button>
+  </div>
+
+  <script>
+    const measurerForm = document.getElementById('measurerForm');
+    const measurerPopup = document.getElementById('measurerPopup');
+    const closeMeasurerPopup = document.getElementById('closeMeasurerPopup');
+
+    measurerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const fullname = document.getElementById('fullname').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      const nameRegex = /^[а-яА-ЯёЁa-zA-Z\s]+$/;
+      const phoneRegex = /^\d+$/;
+
+      if (!fullname || !phone) {
+        alert('Пожалуйста, заполните все поля.');
+        return;
+      }
+
+      if (!nameRegex.test(fullname)) {
+        alert('ФИО должно содержать только буквы.');
+        return;
+      }
+
+      if (!phoneRegex.test(phone)) {
+        alert('Номер телефона должен содержать только цифры.');
+        return;
+      }
+
+      measurerPopup.style.display = 'block';
+    });
+
+    closeMeasurerPopup.addEventListener('click', () => {
+      measurerPopup.style.display = 'none';
+      measurerForm.reset();
+    });
+  </script>
+</body>
+</html>

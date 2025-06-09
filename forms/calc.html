@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="img/logos.ico" type="image/x-icon">  
+<title>Калькулятор ремонта</title>
+<style>
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    display: flex; justify-content: center; align-items: center;
+    height: 100vh;
+  }
+  .calc-form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    max-width: 600px;
+    width: 100%;
+  }
+  .calc-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+  }
+  .calc-form label {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+    color: #000;
+  }
+  .calc-form select,
+  .calc-form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .calc-form button {
+    width: 100%;
+    padding: 15px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .calc-form button:hover {
+    background: #333;
+  }
+  /* popup стили */
+  .popup-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .popup {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+  }
+  .popup p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #000;
+  }
+  .popup button {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .popup button:hover {
+    background: #333;
+  }
+  @media (max-width: 500px) {
+    .calc-form {
+      padding: 30px;
+    }
+    .calc-form h2 {
+      font-size: 20px;
+    }
+    .calc-form label {
+      font-size: 16px;
+    }
+    .calc-form select,
+    .calc-form input {
+      font-size: 14px;
+      padding: 12px;
+    }
+    .calc-form button {
+      font-size: 16px;
+      padding: 12px;
+    }
+    .popup {
+      padding: 20px 25px;
+    }
+    .popup p {
+      font-size: 16px;
+    }
+    .popup button {
+      font-size: 16px;
+      padding: 10px 25px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="calc-form">
+    <h2>Калькулятор ремонта</h2>
+    <form id="repairCalcForm">
+      <label for="repairType">Тип ремонта</label>
+      <select id="repairType" name="repairType" required>
+        <option value="" disabled selected>Выберите тип ремонта</option>
+        <option value="econom">Эконом</option>
+        <option value="standard">Стандарт</option>
+        <option value="premium">Премиум</option>
+      </select>
+
+      <label for="roomType">Тип помещения</label>
+      <select id="roomType" name="roomType" required>
+        <option value="" disabled selected>Выберите тип помещения</option>
+        <option value="kvartira">Квартира</option>
+        <option value="dom">Дом</option>
+        <option value="ofis">Офис</option>
+        <option value="dacha">Дача</option>
+      </select>
+
+      <label for="area">Площадь (кв.м)</label>
+      <input type="number" id="area" name="area" placeholder="Введите площадь" min="1" required />
+
+      <label for="startDate">Желаемая дата начала ремонта</label>
+      <input type="date" id="startDate" name="startDate" required />
+
+      <button type="submit">Рассчитать</button>
+    </form>
+  </div>
+
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup" id="popup">
+      <div id="popupContent"></div>
+      <button id="closePopup">Закрыть</button>
+    </div>
+  </div>
+
+<script>
+  const form = document.getElementById('repairCalcForm');
+  const popupOverlay = document.getElementById('popupOverlay');
+  const popupContent = document.getElementById('popupContent');
+  const closePopup = document.getElementById('closePopup');
+
+  const prices = {
+    econom: 30,
+    standard: 60,
+    premium: 100,
+  };
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const type = form.repairType.value;
+    const area = Number(form.area.value);
+    const room = form.roomType.value;
+    const startDate = form.startDate.value;
+
+    if (!type) {
+      alert('Пожалуйста, выберите тип ремонта.');
+      return;
+    }
+    if (!room) {
+      alert('Пожалуйста, выберите тип помещения.');
+      return;
+    }
+    if (!area || area <= 0) {
+      alert('Пожалуйста, введите корректную площадь.');
+      return;
+    }
+    if (!startDate) {
+      alert('Пожалуйста, выберите дату начала ремонта.');
+      return;
+    }
+    const year = new Date(startDate).getFullYear();
+    if (year > 2030) {
+      alert('Год начала ремонта не может быть позже 2030.');
+      return;
+    }
+    const pricePerSqm = prices[type];
+    const totalPrice = pricePerSqm * area;
+    const formattedDate = new Date(startDate).toLocaleDateString('ru-RU');
+    popupContent.innerHTML = `
+      <p>Тип ремонта: <b>${form.repairType.options[form.repairType.selectedIndex].text}</b></p>
+      <p>Тип помещения: <b>${form.roomType.options[form.roomType.selectedIndex].text}</b></p>
+      <p>Площадь: <b>${area} кв.м</b></p>
+      <p>Желаемая дата начала ремонта: <b>${formattedDate}</b></p>
+      <p>Приблизительная стоимость ремонта: <b>${totalPrice.toLocaleString('ru-RU')} BYN</b></p>
+    `;
+
+    popupOverlay.style.display = 'flex';
+  });
+  closePopup.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+    form.reset();
+  });
+  popupOverlay.addEventListener('click', (e) => {
+    if (e.target === popupOverlay) {
+      popupOverlay.style.display = 'none';
+      form.reset();
+    }
+  });
+</script>
+</body>
+</html>
